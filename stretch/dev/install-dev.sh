@@ -8,14 +8,16 @@ fi
 
 function install_pip(){
     # Funkcja pomocnicza do instalacji narzędzi Pythona: pip, virtualenv
+    # zakomentowano polecenia dla Pythona 2
     getpy="./get-pip.py"
     if [ -e $getpy ]; then
-      python $getpy
-      pip install virtualenv
+      #python $getpy
+      #pip install virtualenv
       python3 $getpy
       pip3 install virtualenv
     else
-      apt install python-pip python3-pip python-virtualenv python3-virtualenv --yes
+      #apt install python-pip python-virtualenv
+      apt install python3-pip python3-virtualenv --yes
     fi
 }
 
@@ -31,34 +33,35 @@ function install_sqlitestudio(){
 }
 
 ## Instalacja SublimeText
-wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | apt-key add -
-echo "deb http://download.sublimetext.com/ apt/stable/" | tee /etc/apt/sources.list.d/sublime-text.list
-apt update
+#wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | apt-key add -
+#echo "deb http://download.sublimetext.com/ apt/stable/" | tee /etc/apt/sources.list.d/sublime-text.list
+#apt update
+# dodaj sublime-text do poniższej listy
 
 ## Instalacja dodatkowych pakietów
-# dostosuj listę!!!
+# dostosuj listę, np.:
+#sqlite3
+#git
+#qtcreator
+#qt5-make
+#qt5-default
+#python-pyqt5
+#python-pyqt5.qtsvg
+#python-tk
+#python3-pyqt5
+#python3-pyqt5.qtsvg
+#python3-tk
+#python3-venv
+#php-fpm
+#php-gd
+#php7.0-sqlite3
+#php-json
 TOADD="
+codeblocks
 g++
-sqlite3
-git
-qtcreator
-qt5-make
-qt5-default
-sublime-text
-python-pyqt5
-python-pyqt5.qtsvg
-python-tk
-python3-pyqt5
-python3-pyqt5.qtsvg
-python3-tk
-python3-venv
-php-fpm
-php-gd
-php7.0-sqlite3
-php-json
+cppcheck
 "
 install_list "$TOADD"
-
 
 ###################################################
 ## Python
@@ -66,25 +69,29 @@ install_list "$TOADD"
 ## Instalacja narzędzi Pythona (pip, virtualenv)
 install_pip
 
-## Instalacja rozszerzonej konsoli Pythona oraz
-pip2 install ipython qtconsole pygame matplotlib
-
-## Pygame i Matplotlib - biblioteki Pythona
-pip3 install ipython qtconsole pygame matplotlib
+## Preferowany Python 3, polecenia dla Pythona 2 zakomentowano
+## Instalacja rozszerzonej konsoli Pythona
+#pip2 install ipython qtconsole
+pip3 install ipython qtconsole
+## Instalacja bibliotek Matplotlib i PyGame
+#pip2 install pygame matplotlib
+pip3 install pygame matplotlib
 
 ## Flask, Django, Peewee, SQLAlchemy – frameworki Pythona
 #pip2 install flask django peewee sqlalchemy flask-sqlalchemy
 #pip3 install flask django peewee sqlalchemy flask-sqlalchemy
 ## Sphinx – generator dokumentacji Pythona
-#pip install sphinx sphinx-rtd-theme
+#pip2 install sphinx sphinx-rtd-theme
+#pip3 install sphinx sphinx-rtd-theme
 
 ###################################################
-## Instalacja pakietów deb
-## i rozpakowanie archiwów tgz z katalogu dev
+## Po umieszczeniu pakietów deb i/lub archiwów tgz
+## w katalogu dev odkomentuj odpowiednie polecenia
+## poniżej
 ###################################################
-install_deb ../dev
-install_tgz ../dev
-chown -R root:root "/etc/skel"
+#install_deb ../dev
+#install_tgz ../dev
+#chown -R root:root "/etc/skel"
 
 ## Instalacja SQLiteStudio
 install_sqlitestudio

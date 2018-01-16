@@ -42,30 +42,28 @@ install_pkg "$NOREC"
 #apt install sylpheed sylpheed-i18n sylfilter --yes
 
 ## Instalacja dodatkowych pakietów
-# Można dodać do listy np.:
-# filezilla – klient FTP
-# dosemu – emulator DOS-a
-
 TOADD="
+vlc
 gvfs-backends
+galculator
+filezilla
+lxrandr
+chromium
+chromium-l10n
+zim
+dosemu
+flashplayer-mozilla
+flashplayer-chromium
+gimp-plugin-registry
+audacity
+inkscape
+libreoffice-style-sifr
 ttf-mscorefonts-installer
 viewnior
 p7zip-full
 yad
 catfish
 qt4-qtconfig
-lxrandr
-chromium
-chromium-l10n
-flashplayer-mozilla
-flashplayer-chromium
-zim
-gimp-plugin-registry
-audacity
-inkscape
-vlc
-galculator
-libreoffice-style-sifr
 "
 install_list "$TOADD"
 

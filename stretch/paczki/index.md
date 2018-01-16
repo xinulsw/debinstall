@@ -6,5 +6,4 @@ skryptu `install_xfce.sh` lub `install_gnome.sh`.
 
 ## Przykładowe pakiety
 
-
 - [KeePassXC](https://github.com/magkopian/keepassxc-debian/releases)
