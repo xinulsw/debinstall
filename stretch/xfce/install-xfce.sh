@@ -92,9 +92,7 @@ usermod -a -G sudo $USER
 
 # utworzenie katalogu bin i skopiowanie skryptu aktualizacji
 if [ -f $LIB/sysupd.sh ]; then
-    if [ ! -d "/home/$USER/bin" ]; then
-        mkdir "/home/$USER/bin"
-    fi
+    [ ! -d "/home/$USER/bin" ] && mkdir "/home/$USER/bin"
     cp -f "$LIB/sysupd.sh" "/home/$USER/bin"
     chown -R $USER:$USER "/home/$USER/bin"
     chmod a+x "/home/$USER/bin/sysupd.sh"

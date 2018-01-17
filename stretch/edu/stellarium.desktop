@@ -1,0 +1,11 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name[pl_PL]=Stellarium
+Name=Stellarium
+Icon=/opt/stellarium/stellarium.png
+Comment=Obserwatorium astronomiczne
+Exec=/opt/stellarium/Stellarium-0.17.0.1-x86_64.AppImage
+Terminal=false
+Type=Application
+Categories=Education;Science;
+GenericName=Stellarium

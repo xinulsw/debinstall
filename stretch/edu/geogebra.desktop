@@ -1,0 +1,11 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name[pl_PL]=GeoGebra
+Name=GeoGebra
+Icon=geogebra.svg
+Comment=Edukacyjne narzędzie matematyczne
+Exec=/opt/GeoGebra-linux-x64/GeoGebra
+Terminal=false
+Type=Application
+Categories=Education;Science;
+GenericName=GeoGebra
