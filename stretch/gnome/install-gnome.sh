@@ -1,4 +1,7 @@
 #!/bin/bash
+# Made by xinulsw@gmail.com
+
+## SKRYPT MUSI BYĆ URUCHAMIANY Z KONTA roota!
 
 SDIR=${0%/*}
 LIB="../lib"
@@ -6,31 +9,40 @@ if [ -f "$LIB/tools.sh" ]; then
     . "$LIB/tools.sh"
 fi
 
+## Uwaga: podaj nazwę użytkownika jako argument skryptu
+## lub wpisz nazwę użytkownika utworzonego podczas instalacji
+
 USER=$1
 [[ -z "${USER// }" ]] && USER="linuser"
 echo $USER
 
-#testme ../gnome
-#exit 0
-
-## Skrypt musi być wykonany z konta roota!
-## Katalog konfig: lista repozytoriów, ustawienia domyślne
+## Katalog konfig zawiera: listę repozytoriów,
+## profil domyślny rozpakowywany do katalogu /etc/skel
 install_tgz ../konfig
 install_deb ../konfig
 
 ## Aktualizacja repozytoriów
 apt-get update
 
-## Instalacja narzędzi
+## Pakiety do usunięcia
+TOREMOVE="
+"
+purge_list "$TOREMOVE"
+
+## Instalacja dodatkowych pakietów bez zależności
 NOREC="
 gtk2-engines-murrine
 "
 install_pkg "$NOREC"
 
-# instalowane z preseed.cfg:
+## Lista pakietów instalowanych w preseed.cfg:
+## jeżeli nie używasz preceed.cfg, możesz odkomentować poniższe polecenie
 #apt install sudo gksu mc rsync unrar tree geany geany-plugins terminator localepurge deborphan encfs firmware-linux-nonfree --yes
-# extra
+
+## Instalacja klienta poczty Sylpheed
 #apt install sylpheed sylpheed-i18n sylfilter --yes
+
+## Lista dodatkowych pakietów do zainstalowania
 TOADD="
 vlc
 filezilla
@@ -51,20 +63,19 @@ gtk3-engines-breeze
 "
 install_list "$TOADD"
 
-## Dodatkowee programy, konfiguracja
+###################################################
+## Instalacja pakietów deb
+## i rozpakowanie archiwów tgz z katalogu paczki
+###################################################
 install_deb "../paczki"
 apt --fix-broken install --yes
 install_tgz "../paczki"
 
-## Latest Firefox
-# /bin/bash $SDIR/latest-firefox.sh install
-
+###################################################
+## Rozpakowanie archiwów tgz z katalogu gnome
+## Prekonfiguracja gdm,
+###################################################
 install_tgz ../gnome
-
-## Usunięcie niepotrzebnych pakietów
-TOREMOVE="
-"
-purge_list "$TOREMOVE"
 
 ## Ponowna aktualizacja, czyszczenie
 /bin/bash $LIB/sysupd.sh
@@ -72,14 +83,12 @@ purge_list "$TOREMOVE"
 ## Optymalizacja
 /bin/bash $LIB/optymalizuj.sh
 
-# dodanie użytkownika do grupy sudo
+# Dodanie użytkownika do grupy sudo
 usermod -a -G sudo $USER
 
-# utworzenie katalogu bin i skopiowanie skryptu aktualizacji
+# Utworzenie katalogu bin i skopiowanie skryptu aktualizacji
 if [ -f $LIB/sysupd.sh ]; then
-    if [ ! -d "/home/$USER/bin" ]; then
-        mkdir "/home/$USER/bin"
-    fi
+    [ ! -d "/home/$USER/bin" ] && mkdir "/home/$USER/bin"
     cp -f "$LIB/sysupd.sh" "/home/$USER/bin"
     chown -R $USER:$USER "/home/$USER/bin"
     chmod a+x "/home/$USER/bin/sysupd.sh"

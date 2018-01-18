@@ -1,4 +1,7 @@
 #!/bin/bash
+# Made by xinulsw@gmail.com
+
+## SKRYPT MUSI BYĆ URUCHAMIANY Z KONTA roota!
 
 SDIR=${0%/*}
 LIB="../lib"
@@ -13,8 +16,8 @@ USER=$1
 [[ -z "${USER// }" ]] && USER="linuser"
 echo $USER
 
-## Skrypt musi być wykonany z konta roota!
-## Katalog konfig: lista repozytoriów, ustawienia domyślne
+## Katalog konfig zawiera: listę repozytoriów,
+## profil domyślny rozpakowywany do katalogu /etc/skel
 install_tgz ../konfig
 install_deb ../konfig
 
@@ -41,7 +44,7 @@ install_pkg "$NOREC"
 ## Instalacja klienta poczty Sylpheed
 #apt install sylpheed sylpheed-i18n sylfilter --yes
 
-## Instalacja dodatkowych pakietów
+## Lista dodatkowych pakietów do zainstalowania
 TOADD="
 vlc
 gvfs-backends
@@ -87,10 +90,10 @@ install_tgz ../xfce
 ## Optymalizacja
 /bin/bash $LIB/optymalizuj.sh
 
-# dodanie użytkownika do grupy sudo
+# Dodanie użytkownika do grupy sudo
 usermod -a -G sudo $USER
 
-# utworzenie katalogu bin i skopiowanie skryptu aktualizacji
+# Utworzenie katalogu bin i skopiowanie skryptu aktualizacji
 if [ -f $LIB/sysupd.sh ]; then
     [ ! -d "/home/$USER/bin" ] && mkdir "/home/$USER/bin"
     cp -f "$LIB/sysupd.sh" "/home/$USER/bin"
