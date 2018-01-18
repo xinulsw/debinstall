@@ -30,7 +30,15 @@ i `preseed_gnome.cfg` – różnią się tylko domyślnie instalowanym środowis
 ..- linuser – nazwa użytkownika,
 ..- xzsawq21 – hasło roota i uzytkownika,
 ..- /dev/sda – wybranie pierwszego dysku do instalacji menedżera GRUB.
-3. Modyfikujemy polecenia uruchamiające instalator tak aby uwzględniały plik odpowiedzi.
+3. Modyfikujemy polecenia uruchamiające instalator tak, aby uwzględniały plik odpowiedzi.
+W tym celu z katalogu `isolinux` na pendrajwie otwieramy pliki `gtk.cfg` i `txt.cfg`,
+a następnie modyfikujemy zgodnie z poniższym przykładem linię dołączającą opcjonalne
+parametry kernela:
+
+```bash
+append preseed/file=/cdrom/preseed.cfg locale=pl_PL.UTF-8 keymap=pl language=pl country=PL vga=788 initrd=/install.amd/gtk/initrd.gz --- quiet
+```
+4. Uruchamiamy komputer z przygotowanego pendrajwa i wybieramy instalację najlepiej w trybie tekstowym. **Uwaga**: patycje do instalacji systemu trzeba wskazać ręcznie!
 
 ## Użycie
 
