@@ -39,7 +39,7 @@ function install_sqlitestudio(){
 # dodaj sublime-text do poniższej listy
 
 ## Instalacja dodatkowych pakietów
-# dostosuj listę, np.:
+## dostosuj listę, np.:
 #sqlite3
 #git
 #qtcreator

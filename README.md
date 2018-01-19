@@ -75,6 +75,8 @@ su - root
 ./install-xfce.sh linuser
 ```
 
+## Dostosowanie skryptów instalacyjnych/konfiguracyjnych
+
 Kolejnym krokiem może być uruchomienie skryptów instalujących narzędzia programistyczne
 i/lub edukacyjne. Za każdym razem wchodzimy do odpowiedniego katalogu i uruchamiamy
 z konta roota skrypt instalacyjny, np.:
@@ -86,12 +88,10 @@ cd ../edu
 ./install-edu.sh
 ```
 
-## Dostosowanie skryptów instalacyjnych/konfiguracyjnych
-
-Zanim użyjesz skryptów z pokatalogów `dev` i `edu` folderu `stretch` przejrzyj je
-i dostosuj do własnych potrzeb. Aby poprawnie zadziałały, konieczne jest m. in.
-wcześniejsze ściągnięcie i umieszczenie w odpowiednich katalogach plików programów
-do zainstalowania. Poczytaj:
+**Uwaga**: Zanim użyjesz skryptów z pokatalogów `dev` i `edu` folderu `stretch`
+przejrzyj je i dostosuj do własnych potrzeb. Aby poprawnie zadziałały,
+konieczne jest m. in. wcześniejsze ściągnięcie i umieszczenie w odpowiednich
+katalogach plików programów do zainstalowania. Poczytaj:
 
 - [Narzędzia programistyczne](dev/index.md)
 - [Narzędzia edukacyjne](edu/index.md)
@@ -103,5 +103,5 @@ i uruchom go, np.:
 
 ```bash
 cd ../lib
-./mkusers.sh linuser
+./mkusers.sh
 ```

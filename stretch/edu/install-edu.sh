@@ -1,8 +1,11 @@
 #!/bin/bash
 
+## Dostosuj wersje plików!!!
+
 GEOGEBRA="GeoGebra-Linux64-Portable-6-0-417-0.zip"
 GEOGEBRA_ICON="geogebra.svg"
 GEOGEBRA_DESKTOP="geogebra.desktop"
+
 STELLARIUM="Stellarium-0.17.0.1-x86_64.AppImage"
 STELLARIUM_DESKTOP="stellarium.desktop"
 STELLARIUM_ICON="stellarium.png"
