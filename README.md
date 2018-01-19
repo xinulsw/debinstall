@@ -37,11 +37,11 @@ i `preseed_gnome.cfg` – różnią się tylko domyślnie instalowanym środowis
 
 1. Wybrany plik odpowiedzi umieszczamy w głównym katalogu pendrajwa pod nazwą `preseed.cfg`.
 2. Ustawienia domyślne, które można, a czasem trzeba dostosować:
- - *debian000* – nazwa komputera,
- - *szkola.org* – nazwa domeny,
- - *linuser* – login konta użytkownika tworzonego podczas instalacji,
- - *xzsawq21* – hasło roota i domyślnego użytkownika,
- - */dev/sda* – wskazanie pierwszego dysku do instalacji menedżera GRUB.
+  - *debian000* – nazwa komputera,
+  - *szkola.org* – nazwa domeny,
+  - *linuser* – login konta użytkownika tworzonego podczas instalacji,
+  - *xzsawq21* – hasło roota i domyślnego użytkownika,
+  - */dev/sda* – wskazanie pierwszego dysku do instalacji menedżera GRUB.
 
 3. Aby wykorzystać plik odpowiedzi, trzeba zmienić polecenia uruchamiające instalator.
 W tym celu z katalogu `isolinux` na pendrajwie otwieramy pliki `gtk.cfg` i `txt.cfg`,
@@ -50,7 +50,9 @@ a następnie modyfikujemy linię dołączającą opcjonalne parametry kernela zg
  ```bash
  append preseed/file=/cdrom/preseed.cfg locale=pl_PL.UTF-8 keymap=pl language=pl country=PL vga=788 initrd=/install.amd/gtk/initrd.gz --- quiet
  ```
-4. Uruchamiamy komputer z przygotowanego pendrajwa i wybieramy instalację najlepiej w trybie tekstowym. **Uwaga**: partycje do instalacji systemu trzeba wskazać ręcznie!
+4. Uruchamiamy komputer z przygotowanego pendrajwa i wybieramy instalację najlepiej w trybie tekstowym.
+
+**Uwaga**: partycje do instalacji systemu trzeba wskazać ręcznie!
 
 ## Konfiguracja systemu
 
