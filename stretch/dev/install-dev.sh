@@ -32,11 +32,17 @@ function install_sqlitestudio(){
     fi
 }
 
-## Instalacja SublimeText
+## Instalacja edytora SublimeText
 #wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | apt-key add -
 #echo "deb http://download.sublimetext.com/ apt/stable/" | tee /etc/apt/sources.list.d/sublime-text.list
 #apt update
 # dodaj sublime-text do poniższej listy
+
+## Instalacja edytora Atom
+#curl -L https://packagecloud.io/AtomEditor/atom/gpgkey | apt-key add -
+#sh -c 'echo "deb [arch=amd64] https://packagecloud.io/AtomEditor/atom/any/ any main" > /etc/apt/sources.list.d/atom.list'
+#apt update
+# dodaj atom do poniższej listy
 
 ## Instalacja dodatkowych pakietów
 ## dostosuj listę, np.:
