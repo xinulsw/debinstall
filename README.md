@@ -6,17 +6,16 @@ Skrypty dostosowujące instalację Debiana
 
 Debian Stretch (9), amd64
 
-## Klonowanie repozytorium
+## Pobieranie repozytorium
 
-W terminalu wydajemy polecenie:
+Repozytorium można pobrać jako [archiwum zip](https://github.com/xinulsw/debinstall/archive/master.zip),
+które należy później rozpakować.
+
+Repozytorium można również sklonować wydając polecenie w terminalu:
 
 ```bash
 git clone https://github.com/xinulsw/debian.git
 ```
-
-– w bieżącym katalogu utworzony zostanie katalog `debinstall` zawierający kopię
-repozytorium.
-
 
 ## Przygotowanie instalacyjnego pendrajwa
 
