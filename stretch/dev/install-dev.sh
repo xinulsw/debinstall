@@ -90,6 +90,7 @@ pip3 install pygame matplotlib
 #pip2 install sphinx sphinx-rtd-theme
 #pip3 install sphinx sphinx-rtd-theme
 
+
 ###################################################
 ## Po umieszczeniu pakietów deb i/lub archiwów tgz
 ## w katalogu dev odkomentuj odpowiednie polecenia
@@ -102,6 +103,9 @@ pip3 install pygame matplotlib
 ## Instalacja SQLiteStudio
 install_sqlitestudio
 
+## Instalacja VirtualBox
+#echo "deb https://download.virtualbox.org/virtualbox/debian artful contrib" | sudo tee /etc/apt/sources.list.d/virtualbox.list && wget -q https://www.virtualbox.org/download/oracle_vbox_2016.asc -O- | sudo apt-key add - && sudo apt update && sudo apt install virtualbox-5.2 --yes
+
 ###################################################
 ## Serwery WWW
 ###################################################
@@ -111,9 +115,13 @@ install_sqlitestudio
 #fi
 
 ## Instalacja serwera Apache + PHP
-## Konieczna jest konfiguracja opisana osobno w serwisie ecg.vot.pl
+## Konieczna jest konfiguracja opisana osobno w serwisie ecg.vot.pl, w skrócie:
 #apt-get install apache2 php7.0 php7.0-gd php7.0-sqlite php7.0-curl php7.0-xml libapache2-mod-php7.0 --yes
 #a2enmod rewrite userdir vhost_alias
+#NOTICE: To enable PHP 7.0 FPM in Apache2 do:
+#NOTICE: a2enmod proxy_fcgi setenvif
+#NOTICE: a2enconf php7.0-fpm
 #service apache2 restart
+#zakomentować w mods-available/php5.conf
 
 exit 0
