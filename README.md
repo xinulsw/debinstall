@@ -94,8 +94,8 @@ przejrzyj je i dostosuj do własnych potrzeb. Aby poprawnie zadziałały,
 konieczne jest m. in. wcześniejsze ściągnięcie i umieszczenie w odpowiednich
 katalogach plików programów do zainstalowania. Poczytaj:
 
-- [Narzędzia programistyczne](dev/index.md)
-- [Narzędzia edukacyjne](edu/index.md)
+- [Narzędzia programistyczne](stretch/dev/index.md)
+- [Narzędzia edukacyjne](stretch/edu/index.md)
 
 ## Tworzenie kont użytkowników
 
