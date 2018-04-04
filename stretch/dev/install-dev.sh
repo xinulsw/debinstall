@@ -107,6 +107,15 @@ install_sqlitestudio
 #echo "deb https://download.virtualbox.org/virtualbox/debian artful contrib" | sudo tee /etc/apt/sources.list.d/virtualbox.list && wget -q https://www.virtualbox.org/download/oracle_vbox_2016.asc -O- | sudo apt-key add - && sudo apt update && sudo apt install virtualbox-5.2 --yes
 
 ###################################################
+## Node.js, https://deb.nodesource.com
+###################################################
+# Ubuntu, Linux Mint
+# curl -sL https://deb.nodesource.com/setup_9.x | sudo -E bash -
+# Debian
+#curl -sL https://deb.nodesource.com/setup_9.x | bash -
+#sudo apt-get install -y nodejs
+
+###################################################
 ## Serwery WWW
 ###################################################
 ## Opcjonalna kopia pliku konfiguracyjnego Hiawatha
