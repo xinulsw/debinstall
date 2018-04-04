@@ -131,6 +131,6 @@ install_sqlitestudio
 #NOTICE: a2enmod proxy_fcgi setenvif
 #NOTICE: a2enconf php7.0-fpm
 #service apache2 restart
-#zakomentować w mods-available/php5.conf
+#zakomentować w /etc/apache2/mods-available/php7.0.conf
 
 exit 0
